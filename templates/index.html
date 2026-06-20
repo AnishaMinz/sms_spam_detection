@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SMS Spam Detection</title>
+  <style>
+    /* General styling */
+    body {
+      background-image: url("static/img/bg3.jpg");
+      background-repeat: no-repeat;
+      background-size: cover; 
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    /* Container */
+    .container {
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 500px;
+      text-align: center;
+    }
+
+    /* Header */
+    h1 {
+      font-size: 1.8rem;
+      color: #333;
+    }
+
+    /* Textarea for input */
+    .sms-input {
+      width: 75%;
+      height: 150px;
+      margin-top: 1rem;
+      padding: 1rem;
+      
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+      resize: none;
+    }
+
+    /* Button */
+    .detect-button {
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #fff;
+      background-color: #007bff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .detect-button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Result */
+    .result {
+      margin-top: 1.5rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .spam {
+      color: #ff4d4d;
+    }
+
+    .not-spam {
+      color: #28a745;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="container">
+    <form action="/predict" method="post">
+    <h1>SMS Spam Detection</h1>
+    <textarea id="msg" name="msg" rows="4" cols="50" placeholder="Enter SMS message here..."></textarea>
+    <input type="submit" value="Submit">
+    <div id="result" class="result">
+      <h2>{{ prediction_text }}</h2>
+    </div>
+    </form>
+  </div>
+
+</body>
+</html>
